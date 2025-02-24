@@ -1,5 +1,3 @@
-package Assignments;
-
 import java.util.Scanner;
 
 public class BooleanTest {

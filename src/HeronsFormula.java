@@ -1,15 +1,14 @@
-package Assignments;
 import java.util.Scanner;
 
 public class HeronsFormula {
     public static void main(String[] args) {
         // Ask the user for three sides of the triangle
         Scanner keyboard = new Scanner(System.in);
-        System.out.println("Please enter your a value");
+        System.out.println("Please enter your a value: ");
         double a = keyboard.nextDouble();
-        System.out.println("Please enter your b value");
+        System.out.println("Please enter your b value: ");
         double b = keyboard.nextDouble();        
-        System.out.println("Please enter your c value");
+        System.out.println("Please enter your c value: ");
         double c = keyboard.nextDouble();
         
         // Using HeronsFormula
