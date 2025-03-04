@@ -17,21 +17,17 @@ public class PolynomialEvaluator {
         double result = 0;
         
         while (st.hasMoreTokens()) {
-            String current_token = st.nextToken();
-            int coefficient = 1;
+            String current_Token = st.nextToken();
+            double coefficient = 1;
             int exponent = 0;
-            int xIndex = current_token.indexOf('x');
-            int expIndex = current_token.indexOf('^');
+            int xIndex = current_Token.indexOf('x');
+            int expIndex = current_Token.indexOf('^');
+            coefficient = (xIndex != -1) ? Double.parseDouble(current_Token.substring(0, xIndex)) : Double.parseDouble(current_Token);
             if (xIndex != -1) {
-                coefficient = (xIndex > 0) ? Integer.parseInt(current_token.substring(0, xIndex)) : 1;
-
-                exponent = (expIndex != -1) ? Integer.parseInt(current_token.substring(expIndex + 1)) : 1;
-            } else {
-                coefficient = Integer.parseInt(current_token);
+                exponent = (expIndex != -1) ? Integer.parseInt(current_Token.substring(expIndex + 1)) : 1;
             }
                 
-            result += coefficient * Math.pow(x, (exponent));
-
+            result += coefficient * Math.pow(x, exponent);
         }  
         System.out.println("Result: " + result);
         keyboard.close();
