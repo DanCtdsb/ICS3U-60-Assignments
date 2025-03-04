@@ -7,7 +7,7 @@ public class PolynomialEvaluator {
         // Ask the user for the n value
         Scanner keyboard = new Scanner(System.in);
 
-        System.out.println("Please enter your polynomial: ");
+        System.out.println("Please enter your polynomial (Format: f(x)= 3x^2 +3x +3): ");
         String polynomial = keyboard.nextLine();
         polynomial = polynomial.substring(5);
 
@@ -18,35 +18,22 @@ public class PolynomialEvaluator {
         
         while (st.hasMoreTokens()) {
             String current_token = st.nextToken();
-            String coefficient = "";
-            String exponent = "";
-            boolean seen = false;
-            for (int i = 0; i < current_token.length(); i++) {
-                char character = current_token.charAt(i);
-                if (character == '+' || character == '-') {
-                    continue;
-                }
-                if (i + 1 == current_token.length()) {
-                    exponent += character;
-                    if (coefficient == "") {
-                        result += character - '0';
-                    } else if (!seen) {
-                        result += Integer.parseInt(coefficient) * x;
-                    } else {
-                        result += Integer.parseInt(coefficient) * Math.pow(x, Integer.parseInt(exponent));
-                    }
-                } else if (Character.isDigit(character)) {
-                    if (seen) {
-                        exponent += character;
-                    } else {
-                        coefficient += character;
-                    }
-                } else if (character == '^') {
-                    seen = true;
-                }
+            int coefficient = 1;
+            int exponent = 0;
+            int xIndex = current_token.indexOf('x');
+            int expIndex = current_token.indexOf('^');
+            if (xIndex != -1) {
+                coefficient = (xIndex > 0) ? Integer.parseInt(current_token.substring(0, xIndex)) : 1;
+
+                exponent = (expIndex != -1) ? Integer.parseInt(current_token.substring(expIndex + 1)) : 1;
+            } else {
+                coefficient = Integer.parseInt(current_token);
             }
-        }
-        System.out.println("Result" + result);
+                
+            result += coefficient * Math.pow(x, (exponent));
+
+        }  
+        System.out.println("Result: " + result);
         keyboard.close();
     }
 }
