@@ -11,7 +11,7 @@ public class PolynomialEvaluator {
         String polynomial = keyboard.nextLine().substring(5);
 
         // Tokenizes the polynomial
-        StringTokenizer st = new StringTokenizer(polynomial, " ");
+        StringTokenizer st = new StringTokenizer(polynomial);
         System.out.println("Please enter your x value: ");
         double x = keyboard.nextDouble();
         double result = 0;
