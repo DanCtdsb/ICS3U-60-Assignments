@@ -9,14 +9,14 @@ public class NewtonsMethod {
         do {
             System.out.println("Please enter your inital guess");
             double guess = scanner.nextDouble();
-            double prev_guess = guess + 1;
+            double prevGuess = guess + 1;
 
-            System.out.println(Math.abs(prev_guess - guess) < 0.0001);
-            while (Math.abs(prev_guess - guess) > 0.000000001) {
-                prev_guess = guess;
+            System.out.println(Math.abs(prevGuess - guess) < 0.0001);
+            while (Math.abs(prevGuess - guess) > 0.000000001) {
+                prevGuess = guess;
                 double fx = 6 * Math.pow(guess, 4) - 13 * Math.pow(guess, 3) - 18 * Math.pow(guess, 2) + 7 * guess + 6;
                 double fpx = 24 * Math.pow(guess, 3) - 39 * Math.pow(guess, 2) - 36 * guess + 7;
-                guess = prev_guess - fx/fpx;
+                guess = prevGuess - fx/fpx;
                 System.out.println(guess);
             }
 

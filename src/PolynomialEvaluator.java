@@ -18,20 +18,20 @@ public class PolynomialEvaluator {
         
         // Loop through each token
         while (st.hasMoreTokens()) {
-            String current_Token = st.nextToken();
+            String currentToken = st.nextToken();
             double coefficient = 1;
             int exponent = 0;
 
             // Find index at certain symbols
-            int xIndex = current_Token.indexOf('x');
-            int expIndex = current_Token.indexOf('^');
+            int xIndex = currentToken.indexOf('x');
+            int expIndex = currentToken.indexOf('^');
 
             // Coefficient is the value before if x, otherwise the coefficient is the number itself
-            coefficient = (xIndex != -1) ? Double.parseDouble(current_Token.substring(0, xIndex)) : Double.parseDouble(current_Token);
+            coefficient = (xIndex != -1) ? Double.parseDouble(currentToken.substring(0, xIndex)) : Double.parseDouble(currentToken);
             
             // Exponent is the value after the ^, else if x the value is 1, else keep it at 0
             if (xIndex != -1) {
-                exponent = (expIndex != -1) ? Integer.parseInt(current_Token.substring(expIndex + 1)) : 1;
+                exponent = (expIndex != -1) ? Integer.parseInt(currentToken.substring(expIndex + 1)) : 1;
             }
             
             // Formula to add the value of the current token to the overall result

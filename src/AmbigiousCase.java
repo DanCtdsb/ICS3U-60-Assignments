@@ -5,27 +5,27 @@ public class AmbigiousCase {
         // Ask the user for two sides and an angle
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Please enter the value of angle A(Degrees): ");
-        double angle_A = keyboard.nextDouble();
+        double angleA = keyboard.nextDouble();
         System.out.println("Please enter the value of side a: ");
-        double side_a = keyboard.nextDouble();
+        double sideA = keyboard.nextDouble();
         System.out.println("Please enter the value of side b: ");
-        double side_b = keyboard.nextDouble();        
+        double sideB = keyboard.nextDouble();        
         keyboard.close();
         
-        double h = Math.sin(Math.toRadians(angle_A)) * side_b;
+        double h = Math.sin(Math.toRadians(angleA)) * sideB;
         // Calculates what type of triangle is possible based on the values above
-        if (angle_A <= 90) {
-            if (side_a < h) {
+        if (angleA < 90) {
+            if (sideA < h) {
                 System.out.println("There is no triangle.");
-            } else if (side_a == h) {
+            } else if (sideA == h) {
                 System.out.println("The triangle is a right triangle.");
-            } else if (side_a > side_b) {
+            } else if (sideA > sideB) {
                 System.out.println("There is one triangle.");
-            } else {
-                System.out.println("There are two triangles(Ambigious Case).");
+            } else if (h < sideA && sideA < sideB) {
+                System.out.println("There are two triangles(Amibgious Case).");
             } 
         } else {
-            if (side_a <= side_b) {
+            if (sideA < sideB || sideA == sideB) {
                 System.out.println("There is no triangle.");
             } else {
                 System.out.println("There is one triangle.");
