@@ -21,7 +21,7 @@ public class AmbigiousCase {
                 System.out.println("The triangle is a right triangle.");
             } else if (side_a > side_b) {
                 System.out.println("There is one triangle.");
-            } else if (h < side_a && side_a < side_b) {
+            } else {
                 System.out.println("There are two triangles(Ambigious Case).");
             } 
         } else {
