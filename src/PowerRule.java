@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Main {
+public class PowerRule {
     public static void main(String[] args) {
         // Ask the user for the n value
         Scanner keyboard = new Scanner(System.in);
@@ -18,7 +18,10 @@ public class Main {
             int exp = Integer.parseInt(exponents[i]);
             double fstCoefficient = coef * exp;
             int fstExp = exp - 1;
-            fstDerivative += (fstExp >= 0) ? ((fstCoefficient > 0 && i != 0) ? " +" : " ") + fstCoefficient + ((fstExp > 0) ? "x^" : "") + fstExp : "";
+            if (fstExp >= 0) {
+                fstDerivative += ((fstCoefficient > 0 && i != 0) ? " +" : " ") + fstCoefficient;
+                fstDerivative += ((fstExp > 0) ? "x^" : "") + fstExp;
+            }
             double secCoefficient = fstCoefficient * fstExp;
             int secExp = fstExp - 1;
             secDerivative += (secExp >= 0) ? ((secCoefficient > 0 && i != 0) ? " +" : " ") + secCoefficient + ((secExp > 0) ? "x^" + secExp: "") : "";
