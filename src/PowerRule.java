@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class PowerRule {
+public class Main {
     public static void main(String[] args) {
         // Ask the user for the n value
         Scanner keyboard = new Scanner(System.in);
@@ -11,25 +11,21 @@ public class PowerRule {
         System.out.println("Please enter your exponents(seperated by space): ");
         String[] exponents = keyboard.nextLine().split(" ");
 
-        String firstDerivative = "f'(x)=";
-        String secondDerivative = "f''(x)=";
+        String fstDerivative = "f'(x)=";
+        String secDerivative = "f''(x)=";
         for (int i = 0; i < coefficients.length; i++) {
             double coef = Double.parseDouble(coefficients[i]);
             int exp = Integer.parseInt(exponents[i]);
-            double firstCoefficient =  coef * exp;
-            int firstExp = exp - 1;
-            firstDerivative += ((firstCoefficient > 0 && i != 0) ? " +" : " ") + firstCoefficient + ((firstExp != 0) ? "x^" : "") + firstExp;
-            if (i < coefficients.length - 1) {
-                double secondCoefficient = firstCoefficient * firstExp;
-                int secondExp = firstExp - 1;
-                secondDerivative += ((secondCoefficient > 0 && i != 0) ? " +" : " ") + secondCoefficient + ((secondExp != 0) ? "x^" : "") + secondExp;
-            }
+            double fstCoefficient = coef * exp;
+            int fstExp = exp - 1;
+            fstDerivative += (fstExp >= 0) ? ((fstCoefficient > 0 && i != 0) ? " +" : " ") + fstCoefficient + ((fstExp > 0) ? "x^" : "") + fstExp : "";
+            double secCoefficient = fstCoefficient * fstExp;
+            int secExp = fstExp - 1;
+            secDerivative += (secExp >= 0) ? ((secCoefficient > 0 && i != 0) ? " +" : " ") + secCoefficient + ((secExp > 0) ? "x^" + secExp: "") : "";
         }
-        System.out.println("Your first derivative is: " + firstDerivative);
-        System.out.println("Your second derivative is: " + secondDerivative);
+        System.out.println("Your first derivative is: " + fstDerivative);
+        System.out.println("Your second derivative is: " + secDerivative);
 
-
-        // Loop through each token
         keyboard.close();
     }
 }
