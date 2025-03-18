@@ -24,7 +24,10 @@ public class PowerRule {
             }
             double secCoefficient = fstCoefficient * fstExp;
             int secExp = fstExp - 1;
-            secDerivative += (secExp >= 0) ? ((secCoefficient > 0 && i != 0) ? " +" : " ") + secCoefficient + ((secExp > 0) ? "x^" + secExp: "") : "";
+            if (secExp >= 0) {
+                secDerivative += ((secCoefficient > 0 && i != 0) ? " +" : " ") + secCoefficient;
+                secDerivative += ((secExp > 0) ? "x^" + secExp: "");
+            }
         }
         System.out.println("Your first derivative is: " + fstDerivative);
         System.out.println("Your second derivative is: " + secDerivative);
