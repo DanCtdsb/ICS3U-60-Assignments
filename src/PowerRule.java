@@ -5,6 +5,7 @@ public class PowerRule {
         // Ask the user for the n value
         Scanner keyboard = new Scanner(System.in);
 
+        // Define the arrays
         System.out.println("Please enter your coefficients(seperated by space): ");
         String[] coefficients = keyboard.nextLine().split(" ");
 
@@ -13,6 +14,8 @@ public class PowerRule {
 
         String fstDerivative = "f'(x)=";
         String secDerivative = "f''(x)=";
+
+        // Make the Derivatives
         for (int i = 0; i < coefficients.length; i++) {
             double coef = Double.parseDouble(coefficients[i]);
             int exp = Integer.parseInt(exponents[i]);
