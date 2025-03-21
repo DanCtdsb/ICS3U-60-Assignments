@@ -16,7 +16,7 @@ public class NewtonsMethod {
                 prevGuess = guess;
                 double fx = 6 * Math.pow(guess, 4) - 13 * Math.pow(guess, 3) - 18 * Math.pow(guess, 2) + 7 * guess + 6;
                 double fpx = 24 * Math.pow(guess, 3) - 39 * Math.pow(guess, 2) - 36 * guess + 7;
-                guess = prevGuess - fx/fpx;
+                guess = prevGuess - fx / fpx;
                 System.out.println(guess);
             }
 
