@@ -11,8 +11,15 @@ public class TicTacToe {
 
         return board;
     }
-    public static boolean checkWinner(char board[][]) {
-        
+    public static boolean checkWinner(char board[][], int[] diagCount, int[] rowCount, int[] colCount) {
+        if (Math.abs(diagCount[0]) == 3 || Math.abs(diagCount[1]) == 3) {
+            return true;
+        }
+        for (int i = 0; i < board.length; i++) {
+            if (Math.abs(rowCount[i]) == 3 || Math.abs(colCount[i]) == 3) {
+                return true;
+            }
+        }
         return false;
     }
 
@@ -42,8 +49,20 @@ public class TicTacToe {
         System.out.println("  +---+---+---+");
     }
 
-    public static void makeMove(char board[][], int row, int col, char currentPlayer) {
+    public static void makeMove(char board[][], int row, int col, char currentPlayer, int[] diagCount, int[] rowCount, int[] colCount) {
         board[row][col] = currentPlayer;
+        int value = (currentPlayer == 'X') ? 1 : -1;
+        
+        rowCount[row] += value;
+        colCount[row] += value;
+        
+        if (row == col) {
+            diagCount[0] += value;
+        }
+        if (row + col == 2) {
+            diagCount[1] += value;
+        }
+
         return;
     }
 
@@ -58,6 +77,9 @@ public class TicTacToe {
         // Ask the user for the n value
         Scanner keyboard = new Scanner(System.in);
         char board[][] = new char[3][3];
+        int[] rowCount = new int[3];
+        int[] colCount = new int[3]; 
+        int[] diagCount = new int[2];
         char currentPlayer = 'X';
 
         board = initializeBoard(board);
@@ -74,11 +96,11 @@ public class TicTacToe {
                     System.out.println("Please make a move in a non-occupant square");
                     continue;
                 }
-                makeMove(board, row, col, currentPlayer);
-                boolean winner = checkWinner(board);
+                makeMove(board, row, col, currentPlayer, diagCount, rowCount, colCount);
+                boolean winner = checkWinner(board, diagCount, rowCount, colCount);
                 boolean draw = checkDraw(board);
                 if (winner) {
-                    System.out.println(currentPlayer + "has won!");
+                    System.out.println(currentPlayer + " has won!");
                     break;
                 }
 
