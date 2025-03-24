@@ -84,6 +84,7 @@ public class TicTacToe {
         System.out.println("3. To make a move, enter the row number and the column number");
         System.out.println("4. First player to reach 3 in a row horizontally, vertically, or diagonally wins!");
 
+        // Loop
         while (true) {
             System.out.println("--------------------------------------------");
             displayBoard(board);
