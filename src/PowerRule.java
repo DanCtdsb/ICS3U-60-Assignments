@@ -29,7 +29,7 @@ public class PowerRule {
             int secExp = fstExp - 1;
             if (secExp >= 0) {
                 secDerivative += ((secCoefficient > 0 && i != 0) ? " +" : " ") + secCoefficient;
-                secDerivative += ((secExp > 0) ? "x^" + secExp: "");
+                secDerivative += ((secExp > 0) ? "x^" + secExp : "");
             }
         }
         System.out.println("Your first derivative is: " + fstDerivative);

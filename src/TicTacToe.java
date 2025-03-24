@@ -12,6 +12,7 @@ public class TicTacToe {
         return board;
     }
     public static boolean checkWinner(char board[][], int[] diagCount, int[] rowCount, int[] colCount) {
+        // If number of X|O's is 3 in rows, cols, or diags, there is a winner
         if (Math.abs(diagCount[0]) == 3 || Math.abs(diagCount[1]) == 3) {
             return true;
         }
@@ -21,17 +22,6 @@ public class TicTacToe {
             }
         }
         return false;
-    }
-
-    public static boolean checkDraw(char board[][]) {
-        for (int row = 0; row < board.length; row++) {
-            for (int col = 0; col < board[row].length; col++) {
-                if (board[row][col] == ' ') {
-                    return false;
-                }
-            }
-        }
-        return true;
     }
 
     public static void displayBoard(char board[][]) {
@@ -54,7 +44,7 @@ public class TicTacToe {
         int value = (currentPlayer == 'X') ? 1 : -1;
         
         rowCount[row] += value;
-        colCount[row] += value;
+        colCount[col] += value;
         
         if (row == col) {
             diagCount[0] += value;
@@ -77,18 +67,31 @@ public class TicTacToe {
         // Ask the user for the n value
         Scanner keyboard = new Scanner(System.in);
         char board[][] = new char[3][3];
+        final int TURNS = 8;
+
+        // Variables to determine number of X|O's in rows, cols, and diags
         int[] rowCount = new int[3];
         int[] colCount = new int[3]; 
         int[] diagCount = new int[2];
         char currentPlayer = 'X';
+        int counter = 0;
 
         board = initializeBoard(board);
+        System.out.println("\n================================================");
+        System.out.println("Welcome to Tic Tac Toe");
+        System.out.println("1. Players take turns making moves starting with player " + currentPlayer);
+        System.out.println("2. These moves place markers in the designated box");
+        System.out.println("3. To make a move, enter the row number and the column number");
+        System.out.println("4. First player to reach 3 in a row horizontally, vertically, or diagonally wins!");
+
         while (true) {
+            System.out.println("--------------------------------------------");
             displayBoard(board);
             System.out.println("Player " + currentPlayer + " please make your remove (row, column)");
             try {
                 System.out.print("Row: ");
                 int row = keyboard.nextInt() - 1;
+                keyboard.nextLine();
                 System.out.print("Column: ");
                 int col = keyboard.nextInt() - 1;
 
@@ -98,27 +101,28 @@ public class TicTacToe {
                 }
                 makeMove(board, row, col, currentPlayer, diagCount, rowCount, colCount);
                 boolean winner = checkWinner(board, diagCount, rowCount, colCount);
-                boolean draw = checkDraw(board);
                 if (winner) {
+                    displayBoard(board);
                     System.out.println(currentPlayer + " has won!");
+                    System.out.println("--------------------------------------------");
                     break;
                 }
 
-                if (draw) {
+                if (counter == TURNS) {
+                    displayBoard(board);
                     System.out.println("The game ends in a draw!");
+                    System.out.println("--------------------------------------------");
                     break;
                 }
                 currentPlayer = switchPlayer(currentPlayer);
+                counter++;
             } catch (InputMismatchException exception) {
-                System.out.println("Wrong type, please enter a integer");
-                keyboard.next();
+                System.out.println("INVALID MOVE: Wrong type, please enter a integer");
+                keyboard.nextLine();
             } catch (ArrayIndexOutOfBoundsException exception) {
-                System.out.println("Out of bounds, please enter a integer between 1-3");
+                System.out.println("INVALID MOVE: Out of bounds, please enter a integer between 1-3");
             }
         }
-        // Define the arrays
-        System.out.println("Welcome to Tic Tac Toe!");
-    
         keyboard.close();
     }
 }
