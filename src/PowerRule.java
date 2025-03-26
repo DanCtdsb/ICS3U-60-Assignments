@@ -21,12 +21,15 @@ public class PowerRule {
             int exp = Integer.parseInt(exponents[i]);
             double fstCoefficient = coef * exp;
             int fstExp = exp - 1;
+            
             if (fstExp >= 0) {
                 fstDerivative += ((fstCoefficient > 0 && i != 0) ? " +" : " ") + fstCoefficient;
                 fstDerivative += ((fstExp > 0) ? "x^" : "") + fstExp;
             }
+
             double secCoefficient = fstCoefficient * fstExp;
             int secExp = fstExp - 1;
+            
             if (secExp >= 0) {
                 secDerivative += ((secCoefficient > 0 && i != 0) ? " +" : " ") + secCoefficient;
                 secDerivative += ((secExp > 0) ? "x^" + secExp : "");
