@@ -11,13 +11,13 @@ public class TicTacToe {
 
         return board;
     }
-    public static boolean checkWinner(char board[][], int[] diagCount, int[] rowCount, int[] colCount) {
+    public static boolean checkWinner(char board[][], int[] diagCount, int[] rowCount, int[] colCount, final int BOUNDS) {
         // If number of X|O's is 3 in rows, cols, or diags, there is a winner
-        if (Math.abs(diagCount[0]) == 3 || Math.abs(diagCount[1]) == 3) {
+        if (Math.abs(diagCount[0]) == BOUNDS || Math.abs(diagCount[1]) == BOUNDS) {
             return true;
         }
         for (int i = 0; i < board.length; i++) {
-            if (Math.abs(rowCount[i]) == 3 || Math.abs(colCount[i]) == 3) {
+            if (Math.abs(rowCount[i]) == BOUNDS || Math.abs(colCount[i]) == BOUNDS) {
                 return true;
             }
         }
@@ -64,17 +64,18 @@ public class TicTacToe {
         }
     }
     public static void main(String[] args) {
-        // Ask the user for the n value
+        final int BOUNDS = 3;
+        final int TURNS = 9;
+
         Scanner keyboard = new Scanner(System.in);
-        char board[][] = new char[3][3];
-        final int TURNS = 8;
+        char board[][] = new char[BOUNDS][BOUNDS];
 
         // Variables to determine number of X|O's in rows, cols, and diags
-        int[] rowCount = new int[3];
-        int[] colCount = new int[3]; 
+        int[] rowCount = new int[BOUNDS];
+        int[] colCount = new int[BOUNDS]; 
         int[] diagCount = new int[2];
         char currentPlayer = 'X';
-        int counter = 0;
+        int counter = 1;
 
         board = initializeBoard(board);
         System.out.println("\n================================================");
@@ -97,11 +98,11 @@ public class TicTacToe {
                 int col = keyboard.nextInt() - 1;
 
                 if (board[row][col] != ' ') {
-                    System.out.println("Please make a move in a non-occupant square");
+                    System.out.println("INVALID MOVE: Please make a move in a non-occupant square");
                     continue;
                 }
                 makeMove(board, row, col, currentPlayer, diagCount, rowCount, colCount);
-                boolean winner = checkWinner(board, diagCount, rowCount, colCount);
+                boolean winner = checkWinner(board, diagCount, rowCount, colCount, BOUNDS);
                 if (winner) {
                     displayBoard(board);
                     System.out.println(currentPlayer + " has won!");
