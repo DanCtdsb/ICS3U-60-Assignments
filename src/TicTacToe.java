@@ -43,6 +43,7 @@ public class TicTacToe {
         board[row][col] = currentPlayer;
         int value = (currentPlayer == 'X') ? 1 : -1;
         
+        // Add value to the current row, column, and diag if possible (value = 3 or -3 = win)
         rowCount[row] += value;
         colCount[col] += value;
         
@@ -101,6 +102,8 @@ public class TicTacToe {
                     System.out.println("INVALID MOVE: Please make a move in a non-occupant square");
                     continue;
                 }
+
+                // Makes move and checks if there is a winner
                 makeMove(board, row, col, currentPlayer, diagCount, rowCount, colCount);
                 boolean winner = checkWinner(board, diagCount, rowCount, colCount, BOUNDS);
                 if (winner) {
@@ -116,8 +119,10 @@ public class TicTacToe {
                     System.out.println("--------------------------------------------");
                     break;
                 }
+
                 currentPlayer = switchPlayer(currentPlayer);
                 counter++;
+                
             } catch (InputMismatchException exception) {
                 System.out.println("INVALID MOVE: Wrong type, please enter a integer");
                 keyboard.nextLine();
