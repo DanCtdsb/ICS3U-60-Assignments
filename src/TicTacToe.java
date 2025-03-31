@@ -8,7 +8,6 @@ public class TicTacToe {
                 board[row][col] = ' ';
             }
         }
-
         return board;
     }
     public static boolean checkWinner(char board[][], int[] diagCount, int[] rowCount, int[] colCount, final int BOUNDS) {
@@ -16,7 +15,7 @@ public class TicTacToe {
         if (Math.abs(diagCount[0]) == BOUNDS || Math.abs(diagCount[1]) == BOUNDS) {
             return true;
         }
-        for (int i = 0; i < board.length; i++) {
+        for (int i = 0; i < BOUNDS; i++) {
             if (Math.abs(rowCount[i]) == BOUNDS || Math.abs(colCount[i]) == BOUNDS) {
                 return true;
             }
@@ -53,8 +52,6 @@ public class TicTacToe {
         if (row + col == 2) {
             diagCount[1] += value;
         }
-
-        return;
     }
 
     public static char switchPlayer(char currentPlayer) {
@@ -69,7 +66,7 @@ public class TicTacToe {
         final int TURNS = 9;
 
         Scanner keyboard = new Scanner(System.in);
-        char board[][] = new char[BOUNDS][BOUNDS];
+        char board[][] = initializeBoard(new char[BOUNDS][BOUNDS]);
 
         // Variables to determine number of X|O's in rows, cols, and diags
         int[] rowCount = new int[BOUNDS];
@@ -78,13 +75,12 @@ public class TicTacToe {
         char currentPlayer = 'X';
         int counter = 1;
 
-        board = initializeBoard(board);
         System.out.println("\n================================================");
         System.out.println("Welcome to Tic Tac Toe");
         System.out.println("1. Players take turns making moves starting with player " + currentPlayer);
         System.out.println("2. These moves place markers in the designated box");
         System.out.println("3. To make a move, enter the row number and the column number");
-        System.out.println("4. First player to reach 3 in a row horizontally, vertically, or diagonally wins!");
+        System.out.println("4. First player to reach " + BOUNDS + " in a row horizontally, vertically, or diagonally wins!");
 
         // Loop
         while (true) {
