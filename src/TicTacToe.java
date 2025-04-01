@@ -10,6 +10,7 @@ public class TicTacToe {
         }
         return board;
     }
+    
     public static boolean checkWinner(char board[][], int[] diagCount, int[] rowCount, int[] colCount, final int BOUNDS) {
         // If number of X|O's is 3 in rows, cols, or diags, there is a winner
         if (Math.abs(diagCount[0]) == BOUNDS || Math.abs(diagCount[1]) == BOUNDS) {
@@ -55,11 +56,7 @@ public class TicTacToe {
     }
 
     public static char switchPlayer(char currentPlayer) {
-        if (currentPlayer == 'X') {
-            return 'O';
-        } else {
-            return 'X';
-        }
+        return currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
     }
     public static void main(String[] args) {
         final int BOUNDS = 3;
