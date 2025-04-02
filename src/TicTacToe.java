@@ -55,9 +55,6 @@ public class TicTacToe {
         }
     }
 
-    public static char switchPlayer(char currentPlayer) {
-        return currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
-    }
     public static void main(String[] args) {
         final int BOUNDS = 3;
         final int TURNS = 9;
@@ -72,7 +69,7 @@ public class TicTacToe {
         char currentPlayer = 'X';
         int counter = 1;
 
-        System.out.println("\n================================================");
+        System.out.println("\n============================================");
         System.out.println("Welcome to Tic Tac Toe");
         System.out.println("1. Players take turns making moves starting with player " + currentPlayer);
         System.out.println("2. These moves place markers in the designated box");
@@ -81,7 +78,7 @@ public class TicTacToe {
 
         // Loop
         while (true) {
-            System.out.println("--------------------------------------------");
+            System.out.println("-----------------------------------------");
             displayBoard(board);
             System.out.println("Player " + currentPlayer + " please make your remove (row, column)");
             try {
@@ -113,7 +110,7 @@ public class TicTacToe {
                     break;
                 }
 
-                currentPlayer = switchPlayer(currentPlayer);
+                currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
                 counter++;
                 
             } catch (InputMismatchException exception) {
