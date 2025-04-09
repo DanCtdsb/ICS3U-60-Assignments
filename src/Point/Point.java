@@ -32,7 +32,13 @@ public class Point {
     public void linearEquation(Point point) {
         double yInt = yIntercept(point);
         double slope = slope(point);
-        System.out.println("y = " + slope + "x" + ((yInt >= 0) ? " +" : " ") + yInt);
+        if (Double.isInfinite(slope)) {
+            System.out.println("x = " + point.getX());
+        } else if (slope == 0) {
+            System.out.println("y = " + point.getY());
+        } else {
+            System.out.println("y = " + slope + "x" + ((yInt != 0) ? ((yInt >= 0) ? " +" : " ") + yInt : ""));
+        }
     }
     public Point midpoint(Point point) {
         return new Point((this.x + point.getX()) / 2, (this.y + point.getY()) / 2);
