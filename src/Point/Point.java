@@ -15,13 +15,14 @@ public class Point {
     }
     
     public Point difference(Point point) {
-        return new Point(this.x - point.getX(), this.y - point.getY());
+        return new Point(x - point.getX(), y - point.getY());
     }
     public void displayCoordinate() {
-        System.out.println("(" + this.x + ", " + this.y + ")");
+        System.out.println("Your X coordinate is " + x);
+        System.out.println("Your Y coordinate is " + y);
     }
     public double distance(Point point) {
-        return Math.sqrt(Math.pow(point.getX() - this.x, 2) + Math.pow(point.getY() - this.y, 2));
+        return Math.sqrt(Math.pow(point.getX() - x, 2) + Math.pow(point.getY() - y, 2));
     }
     public double getX() {
         return x;
@@ -41,14 +42,14 @@ public class Point {
         }
     }
     public Point midpoint(Point point) {
-        return new Point((this.x + point.getX()) / 2, (this.y + point.getY()) / 2);
+        return new Point((x + point.getX()) / 2, (y + point.getY()) / 2);
     }
     public double slope(Point point) {
-        return (point.getY() - this.y) / (point.getX() - this.x);
+        return (point.getY() - y) / (point.getX() - x);
 
     }
     public Point sum(Point point) {
-        return new Point(this.x + point.getX(), this.y + point.getY());
+        return new Point(x + point.getX(), y + point.getY());
     }
     double yIntercept(Point point) {
         return point.getY() - (point.getX() * slope(point));
