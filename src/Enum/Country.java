@@ -32,4 +32,8 @@ public enum Country {
     public double compareLandMass(Country country) {
         return this.landMass / country.getLandMass();
     }
+
+    public double PopulationDensity(double population) {
+        return population / this.landMass;
+    }
 }
