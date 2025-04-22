@@ -6,7 +6,6 @@ public class MainPoint {
         Point point1 = new Point(1, 1);
         Point point2 = new Point(-1, 1);
 
-
         point0.displayCoordinate();
 
         Point difference = point1.difference(point2);
