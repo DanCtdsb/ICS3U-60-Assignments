@@ -1,12 +1,12 @@
 package Inheritance;
 
 public class Airplane extends Aircraft {
-    private double wingpsan;
+    private double wingspan;
     private double thrust;
 
     public Airplane(String name, double fuel, double avgSpeed, double altitute, double wingspan, double thrust) {
         super(name, fuel, avgSpeed, altitute);
-        this.wingpsan = wingspan;
+        this.wingspan = wingspan;
         this.thrust = thrust;
     }
     public Airplane(String name, double fuel, double avgSpeed, double altitute) {
@@ -16,4 +16,14 @@ public class Airplane extends Aircraft {
     public Airplane(String name, double fuel, double avgSpeed, double altitute, double wingspan) {
         this(name, fuel, avgSpeed, altitute, wingspan, 9900);
     }
+
+    public double WingArea(double chordLen) {
+        return wingspan * chordLen;
+    }
+
+    public double AspectRatio(double chordLen) {
+        return wingspan * wingspan / WingArea(chordLen);
+    }
+    //Cdi = (Cl^2) / (π * AR * e), Cl = L / (A * .5 * r * V^2)
+    // e is 1 for ideal case, ask for l, r is about 1.225
 }

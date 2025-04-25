@@ -11,4 +11,8 @@ public class Aircraft extends Transportation {
     public Aircraft(String name, double fuel, double avgSpeed) {
         this(name, fuel, avgSpeed, 9144.0);
     }
+
+    public double EstTimeForAlt() {
+        return altitute / avgSpeed;
+    }
 }
