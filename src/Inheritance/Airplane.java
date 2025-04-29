@@ -22,7 +22,7 @@ public class Airplane extends Aircraft {
     }
 
     public double AspectRatio(double chordLen) {
-        return wingspan * wingspan / WingArea(chordLen);
+        return Math.pow(liftForce / (WingArea(chordlen) * 0.5 * 1.225 * Math.pow(avgSpeed, 2)), 2) / (Math.PI * AspectRatio(chordlen) * 1);
     }
     //Cdi = (Cl^2) / (π * AR * e), Cl = L / (A * .5 * r * V^2)
     // e is 1 for ideal case, ask for l, r is about 1.225
