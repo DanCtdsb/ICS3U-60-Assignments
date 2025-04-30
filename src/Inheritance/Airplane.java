@@ -1,8 +1,22 @@
 package Inheritance;
 
+/**
+* The Airplane class is a subclass of Aircraft
+* The Airplane class describes an fixed-wing aircraft that is propelled forward by thrust through engines
+*
+* @author Daniel Chen
+* @version 1.0
+*/
+
 public class Airplane extends Aircraft {
+
+    /** The wingspan of the airplane, in m*/
     private double wingspan;
+
+    /** The thrust of the airplane's engines, in N */
     private double thrust;
+
+    /** The chord length of the airplane */
     private double chordLen;
 
     /**  
@@ -111,7 +125,7 @@ public class Airplane extends Aircraft {
     /**  
     * Changes the wingspan of the airplane
     *
-    * @param wingspan of the airplane, in m
+    * @param wingspan the new wingspan of the airplane, in m
     */
     protected void setWingSpan(double wingspan) {
         this.wingspan = wingspan;
@@ -127,7 +141,7 @@ public class Airplane extends Aircraft {
     /**  
     * Changes the thrust of the airplane
     *
-    * @param thrust of the airplane, in N
+    * @param thrust the new thrust of the airplane, in N
     */
     protected void setThrust(double thrust) {
         this.thrust = thrust;
@@ -143,7 +157,7 @@ public class Airplane extends Aircraft {
     /**  
     * Changes the chord length of the airplane
     *
-    * @param chord length of the airplane, in m
+    * @param chordlen the new chord length of the airplane, in m
     */
     protected void setAltitute(double chordLen) {
         this.chordLen = chordLen;
