@@ -8,12 +8,13 @@ public class Airplane extends Aircraft {
     /**  
     * Constructs a Aircraft object with the given parameters
     *
-    * @param name - the name of the transportation system
-    * @param amountOfFuel - the amount of fuel remaining in the system
-    * @param avgSpeed - the average speed of the system
-    * @param altitute - the current altitute the aircraft is at, in m
-    * @param wingspan - the wingspan(length from one wing to the other) of the airplane, in m
-    * @param thrust - the thrust force, in lb
+    * @param name the name of the transportation system
+    * @param amountOfFuel the amount of fuel remaining in the system, in L
+    * @param avgSpeed the average speed of the system, in m/s
+    * @param altitute the current altitute the aircraft is at, in m
+    * @param wingspan the wingspan(length from one wing to the other) of the airplane, in m
+    * @param thrust the thrust force, in lb
+    * @param chordLen the chord length, in m
     */
     public Airplane(String name, double fuel, double avgSpeed, double altitute, double wingspan, double thrust,
             double chordLen) {
@@ -22,15 +23,36 @@ public class Airplane extends Aircraft {
         this.thrust = thrust;
         this.chordLen = chordLen;
     }
-
+    /**  
+    * Constructs a Aircraft object without wingspan or thrust
+    *
+    * @param name the name of the transportation system
+    * @param amountOfFuel the amount of fuel remaining in the system, in L
+    * @param avgSpeed the average speed of the system, in m/s
+    * @param altitute the current altitute the aircraft is at, in m
+    * @param chordLen the chord length, in m
+    */
     public Airplane(String name, double fuel, double avgSpeed, double altitute, double chordLen) {
         this(name, fuel, avgSpeed, altitute, 50, 19800, chordLen);
     }
-
+    /**  
+    * Constructs a Aircraft object without thrust
+    *
+    * @param name the name of the transportation system
+    * @param amountOfFuel the amount of fuel remaining in the system, in L
+    * @param avgSpeed the average speed of the system, in m/s
+    * @param altitute the current altitute the aircraft is at, in m
+    * @param wingspan the wingspan(length from one wing to the other) of the airplane, in m
+    * @param chordLen the chord length, in m
+    */
     public Airplane(String name, double fuel, double avgSpeed, double altitute, double wingspan, double chordLen) {
         this(name, fuel, avgSpeed, altitute, wingspan, 19800, chordLen);
     }
-
+    /**  
+    * Finds the area of the wings
+    *
+    * @return 
+    */
     public double wingArea() {
         return wingspan * chordLen;
     }
