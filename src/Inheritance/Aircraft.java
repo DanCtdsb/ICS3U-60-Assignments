@@ -1,5 +1,6 @@
 package Inheritance;
 
+
 /**
 * The Aircraft class is a subclass of Transportation
 * The Aircraft class describes a transportation method that is capable of flight, with propertities such as altitute

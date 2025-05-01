@@ -1,5 +1,6 @@
 package Inheritance;
 
+
 /**
 * The Transportation class serves as the class for all classes related to movement of people/goods
 * It extends to specific subclasses such as Aircraft and Airplane
@@ -110,15 +111,30 @@ public class Transportation {
     protected double distance(double time) {
         return Math.abs(time * avgSpeed);
     }
-
+    /**  
+    * Compares the speed between two transportation methods
+    *
+    * @param trans another transportation object
+    * @return the name of the transportation method that has the higher average speed, in m/s
+    */
     protected String compareSpeed(Transportation trans) {
         return (avgSpeed > trans.getAvgSpeed()) ? name : trans.getName();
     }
-
+    /**  
+    * Finds the amount of fuel used from a certain distance
+    *
+    * @param fuelComsumption the fuel used per distance, in m
+    * @param distance the distance travelled, in m
+    * @return the amount of fuel used
+    */
     protected double fuelUsed(double fuelConsumption, double distance) {
         return fuelConsumption * distance;
     }
-
+    /**  
+    * Adds fuel to the total amount of fuel in the transportation method
+    *
+    * @param fuel fuel amount added to the amount of fuel
+    */
     protected void addFuel(double fuel) {
         amountOfFuel += fuel;
     }
