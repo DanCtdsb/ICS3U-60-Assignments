@@ -2,11 +2,11 @@ package Inheritance;
 
 
 /**
-* The Transportation class serves as the class for all classes related to movement of people/goods
-* It extends to specific subclasses such as Aircraft and Airplane
+* The Transportation class serves as the class for all classes related to movement of people/goods.
+* It extends to specific subclasses such as Aircraft and Airplane.
 *
 * Provides common properties of all types of transportation, such as the amount of fuel,
-* and the average speed
+* and the average speed.
 *
 * @author Daniel Chen
 * @version 1.0

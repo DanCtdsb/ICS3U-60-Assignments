@@ -2,9 +2,9 @@ package Inheritance;
 
 
 /**
-* The Aircraft class is a subclass of Transportation
-* The Aircraft class describes a transportation method that is capable of flight, with propertities such as altitute
-* The Aircraft class is intented to extend into specific types of aircrafts, such as airplanes
+* The Aircraft class is a subclass of Transportation.
+* The Aircraft class describes a transportation method that is capable of flight, with propertities such as altitute.
+* The Aircraft class is intented to extend into specific types of aircrafts, such as .
 *
 * @author Daniel Chen
 * @version 1.0
@@ -45,7 +45,7 @@ public class Aircraft extends Transportation {
         return altitute;
     } 
     /**  
-    * Changes the curent altitute of the aircraft
+    * Changes the current altitute of the aircraft
     *
     * @param altitute the new altitute of the airplane, in N
     */

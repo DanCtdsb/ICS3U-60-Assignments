@@ -1,7 +1,7 @@
 package Inheritance;
 /**
-* The Airplane class is a subclass of Aircraft
-* The Airplane class describes an fixed-wing aircraft that is propelled forward by thrust through engines
+* The Airplane class is a subclass of Aircraft.
+* The Airplane class describes an fixed-wing aircraft that is propelled forward by thrust through engines.
 *
 * @author Daniel Chen
 * @version 1.0
