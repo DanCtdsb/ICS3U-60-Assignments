@@ -158,7 +158,7 @@ public class Airplane extends Aircraft {
     *
     * @param chordlen the new chord length of the airplane, in m
     */
-    protected void setAltitute(double chordLen) {
+    protected void setChordLen(double chordLen) {
         this.chordLen = chordLen;
     } 
 }

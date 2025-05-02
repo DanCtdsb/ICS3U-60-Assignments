@@ -112,7 +112,7 @@ public class Transportation {
         return Math.abs(time * avgSpeed);
     }
     /**  
-    * Compares the speed between two transportation methods
+    * Compares the speed between two transportation methods.
     *
     * @param trans another transportation object
     * @return the name of the transportation method that has the higher average speed, in m/s
@@ -121,7 +121,7 @@ public class Transportation {
         return (avgSpeed > trans.getAvgSpeed()) ? name : trans.getName();
     }
     /**  
-    * Finds the amount of fuel used from a certain distance
+    * Finds the amount of fuel used from a certain distance.
     *
     * @param fuelComsumption the fuel used per distance, in m
     * @param distance the distance travelled, in m
@@ -131,7 +131,7 @@ public class Transportation {
         return fuelConsumption * distance;
     }
     /**  
-    * Adds fuel to the total amount of fuel in the transportation method
+    * Adds fuel to the total amount of fuel in the transportation method.
     *
     * @param fuel fuel amount added to the amount of fuel
     */

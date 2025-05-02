@@ -3,7 +3,7 @@ package Point;
 public class MainPoint {
     public static void main(String[] args) {
         Point point0 = new Point();
-        Point point1 = new Point(1, 1);
+        Point point1 = new Point(3, 8);
         Point point2 = new Point(-1, 1);
 
         point0.displayCoordinate();
